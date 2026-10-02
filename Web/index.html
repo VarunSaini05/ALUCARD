@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111412">
+  <meta name="description" content="ALUCARD is SolidWorks DXF automation for cut-list extraction, sheet-metal conversion, and batch flat-pattern export.">
+  <title>ALUCARD | SolidWorks DXF Automation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="ALUCARD home">
+      <span class="brand-mark" aria-hidden="true">A</span>
+      <span class="brand-name">ALUCARD</span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#capabilities">Capabilities</a>
+      <a href="#install">Installation</a>
+      <a href="#requirements">Requirements</a>
+    </nav>
+    <a class="header-download" href="#download">Get ALUCARD <span aria-hidden="true">&#8599;</span></a>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> SOLIDWORKS DXF AUTOMATION</p>
+        <h1 id="hero-title">ALUCARD</h1>
+        <p class="hero-subtitle">SolidWorks DXF Automation</p>
+        <p class="hero-description">Turn SolidWorks cut lists into organized part files and production-ready flat-pattern DXFs through the existing ALUCARD VBA workflow.</p>
+        <div class="hero-actions">
+          <a class="button button-primary js-download" aria-disabled="true" tabindex="-1">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.75v9.5m0 0 3.75-3.75M10 12.25 6.25 8.5M3.5 13.25v3h13v-3" /></svg>
+            <span>Download ALUCARD</span>
+          </a>
+          <span class="download-state" data-download-state aria-live="polite">Checking latest release...</span>
+        </div>
+        <div class="hero-meta" aria-label="Installer details">
+          <span>WINDOWS X64</span>
+          <span>INSTALLER</span>
+          <span>ADMIN REQUIRED</span>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Technical flat-pattern drawing">
+        <div class="drawing-header">
+          <span>ALUCARD / FLAT-PATTERN EXPORT</span>
+          <span class="drawing-indicator"><i></i> DXF READY</span>
+        </div>
+        <svg class="pattern-drawing" viewBox="0 0 660 470" role="img" aria-labelledby="pattern-title pattern-description">
+          <title id="pattern-title">Sheet-metal flat pattern diagram</title>
+          <desc id="pattern-description">A technical outline of a folded sheet-metal bracket shown unfolded with bend lines and dimension marks.</desc>
+          <defs>
+            <pattern id="minor-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+              <path d="M22 0H0V22" fill="none" stroke="#849081" stroke-opacity=".12" stroke-width=".7" />
+            </pattern>
+            <pattern id="major-grid" width="110" height="110" patternUnits="userSpaceOnUse">
+              <rect width="110" height="110" fill="url(#minor-grid)" />
+              <path d="M110 0H0V110" fill="none" stroke="#849081" stroke-opacity=".16" stroke-width="1" />
+            </pattern>
+          </defs>
+          <rect width="660" height="470" fill="url(#major-grid)" />
+          <g class="dimension-lines" fill="none" stroke="#abb4a8" stroke-width="1">
+            <path d="M179 94V65M481 94V65M179 75H481" />
+            <path d="m179 75 9-4v8Zm302 0-9-4v8Z" fill="#abb4a8" />
+            <path d="M148 124H118M148 366H118M128 124V366" />
+            <path d="m128 124-4 9h8Zm0 242-4-9h8Z" fill="#abb4a8" />
+            <path d="M374 123V95M374 367V395M368 95h12M368 395h12" />
+          </g>
+          <g class="dimension-text" fill="#abb4a8" font-family="IBM Plex Mono, monospace" font-size="11">
+            <text x="304" y="66">126.0 mm</text>
+            <text x="93" y="252" transform="rotate(-90 93 252)">101.0 mm</text>
+            <text x="388" y="250" transform="rotate(-90 388 250)">BEND LINE</text>
+          </g>
+          <g class="part-outline" fill="#c7ed79" fill-opacity=".055" stroke="#d2f58d" stroke-width="2.2" stroke-linejoin="round">
+            <path d="M179 124H481V366H179V319H211V279H179V211H211V171H179Z" />
+            <circle cx="238" cy="160" r="7" />
+            <circle cx="422" cy="160" r="7" />
+            <circle cx="238" cy="330" r="7" />
+            <circle cx="422" cy="330" r="7" />
+            <path d="M342 146a32 32 0 0 1 64 0v198a32 32 0 0 1-64 0Z" />
+          </g>
+          <g class="bend-lines" fill="none" stroke="#ed785d" stroke-width="1.5" stroke-dasharray="7 6">
+            <path d="M374 124V366M179 211H211M179 279H211" />
+          </g>
+          <g class="callout" font-family="IBM Plex Mono, monospace" font-size="10">
+            <path d="M405 195 469 165h61" fill="none" stroke="#ed785d" stroke-width="1" />
+            <circle cx="405" cy="195" r="3" fill="#ed785d" />
+            <text x="476" y="158" fill="#ed785d">BEND / 90 DEG</text>
+            <text x="476" y="173" fill="#99a196">R 2.0 / K 0.40</text>
+          </g>
+          <g class="drawing-mark" fill="#93a08f" font-family="IBM Plex Mono, monospace" font-size="9">
+            <text x="25" y="30">PART: BRACKET-014</text>
+            <text x="25" y="45">SCALE: 1:1</text>
+            <text x="540" y="424">UNITS: MM</text>
+            <text x="540" y="440">REV: A</text>
+          </g>
+          <path d="M510 383h83v1h-83zM510 378v11m83-11v11" fill="#93a08f" />
+        </svg>
+        <div class="drawing-footer"><span>ILLUSTRATIVE FLAT-PATTERN VIEW</span><span>01 / 01</span></div>
+      </div>
+    </section>
+
+    <section class="release-strip" id="download" aria-labelledby="download-title">
+      <div class="section-shell release-layout">
+        <div class="release-heading">
+          <p class="eyebrow">LATEST WINDOWS RELEASE</p>
+          <h2 id="download-title">Ready for the shop floor.</h2>
+          <p class="release-status" data-release-state aria-live="polite">Looking for the latest public release...</p>
+        </div>
+        <dl class="release-facts">
+          <div><dt>VERSION</dt><dd data-version>--</dd></div>
+          <div><dt>PLATFORM</dt><dd>Windows x64</dd></div>
+          <div><dt>PACKAGE</dt><dd>ALUCARD-Setup.exe</dd></div>
+          <div><dt>FILE SIZE</dt><dd data-size>--</dd></div>
+          <div><dt>RELEASED</dt><dd data-date>--</dd></div>
+        </dl>
+        <div class="release-actions">
+          <a class="button button-primary js-download" aria-disabled="true" tabindex="-1">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.75v9.5m0 0 3.75-3.75M10 12.25 6.25 8.5M3.5 13.25v3h13v-3" /></svg>
+            <span>Download ALUCARD</span>
+          </a>
+          <a class="release-notes" data-release-link href="https://github.com/VarunSaini05/ALUCARD/releases" target="_blank" rel="noreferrer">View release notes <span aria-hidden="true">&#8599;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section section-shell" id="capabilities" aria-labelledby="capabilities-title">
+      <div class="section-heading">
+        <p class="eyebrow">BUILT AROUND YOUR CUT LIST</p>
+        <h2 id="capabilities-title">One command.<br><span>A production-ready handoff.</span></h2>
+      </div>
+      <div class="feature-list">
+        <article class="feature-row">
+          <span class="feature-index">01</span>
+          <h3>SolidWorks integration</h3>
+          <p>Launch the existing VBA automation from the ALUCARD CommandManager tab inside a part document.</p>
+          <span class="feature-mark" aria-hidden="true">&#8599;</span>
+        </article>
+        <article class="feature-row">
+          <span class="feature-index">02</span>
+          <h3>Cut-list extraction</h3>
+          <p>Work through cut-list bodies and create individual part files from the active master part.</p>
+          <span class="feature-mark" aria-hidden="true">&#8599;</span>
+        </article>
+        <article class="feature-row">
+          <span class="feature-index">03</span>
+          <h3>Sheet-metal conversion</h3>
+          <p>Convert extracted bodies to sheet metal and locate the resulting flat-pattern feature.</p>
+          <span class="feature-mark" aria-hidden="true">&#8599;</span>
+        </article>
+        <article class="feature-row">
+          <span class="feature-index">04</span>
+          <h3>Flat-pattern recovery</h3>
+          <p>Retry failed parts with Insert Bends, then use a planar-face fallback where appropriate.</p>
+          <span class="feature-mark" aria-hidden="true">&#8599;</span>
+        </article>
+        <article class="feature-row">
+          <span class="feature-index">05</span>
+          <h3>Batch DXF export</h3>
+          <p>Export flat patterns to organized DXF output and review a summary of parts needing manual work.</p>
+          <span class="feature-mark" aria-hidden="true">&#8599;</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="install-section" id="install" aria-labelledby="install-title">
+      <div class="section-shell install-layout">
+        <div class="section-heading">
+          <p class="eyebrow">GETTING STARTED</p>
+          <h2 id="install-title">Installed in minutes.<br><span>Run from SolidWorks.</span></h2>
+          <p>The installer registers the add-in at machine level. The DXF workflow remains in the included ALUCARD VBA macro project.</p>
+        </div>
+        <ol class="install-steps">
+          <li><span>01</span><p>Download <strong>ALUCARD-Setup.exe</strong>.</p></li>
+          <li><span>02</span><p>Run the installer.</p></li>
+          <li><span>03</span><p>Approve the Windows Administrator prompt.</p></li>
+          <li><span>04</span><p>Complete the installation.</p></li>
+          <li><span>05</span><p>Open SOLIDWORKS.</p></li>
+          <li><span>06</span><p>Enable ALUCARD from <strong>SOLIDWORKS Add-Ins</strong>.</p></li>
+          <li><span>07</span><p>Open a part and select the <strong>ALUCARD</strong> tab.</p></li>
+          <li><span>08</span><p>Click <strong>Extract DXF</strong>.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="requirements section-shell" id="requirements" aria-labelledby="requirements-title">
+      <div class="requirements-title">
+        <p class="eyebrow">BEFORE INSTALLING</p>
+        <h2 id="requirements-title">System requirements</h2>
+      </div>
+      <ul class="requirements-list">
+        <li><span class="requirement-check">01</span><span>Windows x64</span></li>
+        <li><span class="requirement-check">02</span><span>SOLIDWORKS 2026 or a compatible supported version</span></li>
+        <li><span class="requirement-check">03</span><span>Administrator permission for installation</span></li>
+      </ul>
+    </section>
+
+    <section class="final-cta" aria-labelledby="final-cta-title">
+      <div class="section-shell final-cta-layout">
+        <div>
+          <p class="eyebrow">ALUCARD / SOLIDWORKS DXF AUTOMATION</p>
+          <h2 id="final-cta-title">Make the next export<br><span>the easy part.</span></h2>
+        </div>
+        <div class="final-cta-action">
+          <a class="button button-primary js-download" aria-disabled="true" tabindex="-1">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.75v9.5m0 0 3.75-3.75M10 12.25 6.25 8.5M3.5 13.25v3h13v-3" /></svg>
+            <span>Download ALUCARD</span>
+          </a>
+          <p data-download-state>Checking latest release...</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer section-shell">
+    <a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true">A</span><span class="brand-name">ALUCARD</span></a>
+    <p>SolidWorks DXF Automation</p>
+    <a href="https://github.com/VarunSaini05/ALUCARD" target="_blank" rel="noreferrer">Source on GitHub <span aria-hidden="true">&#8599;</span></a>
+    <span class="footer-note">A SolidWorks add-in that launches the existing VBA automation.</span>
+  </footer>
+</body>
+</html>
