@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <OutputType>Library</OutputType>
+    <AssemblyName>ALUCARD</AssemblyName>
+    <RootNamespace>ALUCARD</RootNamespace>
+
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+
+    <ComVisible>true</ComVisible>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="SolidWorks.Interop.sldworks">
+      <HintPath>$(MSBuildProjectDirectory)/../LocalReferences/SolidWorks.Interop.sldworks.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+
+    <Reference Include="SolidWorks.Interop.swconst">
+      <HintPath>$(MSBuildProjectDirectory)/../LocalReferences/SolidWorks.Interop.swconst.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+
+    <Reference Include="SolidWorks.Interop.swpublished">
+      <HintPath>$(MSBuildProjectDirectory)/../LocalReferences/SolidWorks.Interop.swpublished.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>

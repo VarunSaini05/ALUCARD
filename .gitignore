@@ -38,3 +38,5 @@ packages/
 .DS_Store
 Thumbs.db
 Desktop.ini
+# Local SolidWorks API references - never commit
+LocalReferences/
