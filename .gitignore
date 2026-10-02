@@ -1,0 +1,40 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# .NET and build output
+bin/
+obj/
+out/
+TestResults/
+artifacts/
+*.cache
+*.pdb
+*.ilk
+*.log
+
+# NuGet
+*.nupkg
+packages/
+
+# Temporary and backup files
+*.tmp
+*.temp
+*.bak
+*.old
+*.swp
+*.swo
+
+# SolidWorks temporary and backup files
+~$*
+*.sldprt.bak
+*.sldasm.bak
+*.slddrw.bak
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
