@@ -40,3 +40,6 @@ Thumbs.db
 Desktop.ini
 # Local SolidWorks API references - never commit
 LocalReferences/
+
+# The runnable ALUCARD macro is a required installer payload.
+!SolidWorks/VBA/ALUCARD.swp

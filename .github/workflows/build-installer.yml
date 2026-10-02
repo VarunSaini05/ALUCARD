@@ -1,0 +1,88 @@
+name: Build ALUCARD installer
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-installer:
+    runs-on: [self-hosted, windows, x64]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Stage locally installed SolidWorks references
+        shell: pwsh
+        run: |
+          $interopDirectory = $env:SOLIDWORKS_INTEROP_DIR
+          if ([string]::IsNullOrWhiteSpace($interopDirectory)) {
+            throw 'Set SOLIDWORKS_INTEROP_DIR on the self-hosted runner to the directory containing the SolidWorks interop DLLs.'
+          }
+
+          $interopFiles = @(
+            'SolidWorks.Interop.sldworks.dll',
+            'SolidWorks.Interop.swconst.dll',
+            'SolidWorks.Interop.swpublished.dll'
+          )
+          New-Item -ItemType Directory -Path LocalReferences -Force | Out-Null
+
+          foreach ($file in $interopFiles) {
+            $source = Join-Path $interopDirectory $file
+            if (!(Test-Path -LiteralPath $source -PathType Leaf)) {
+              throw "SolidWorks interop reference not found: $source"
+            }
+            Copy-Item -LiteralPath $source -Destination LocalReferences -Force
+          }
+
+      - name: Build add-in
+        run: dotnet build Addin/ALUCARD.csproj --configuration Release
+
+      - name: Verify installer inputs
+        shell: pwsh
+        run: |
+          $requiredFiles = @(
+            'Addin/bin/Release/net48/ALUCARD.dll',
+            'SolidWorks/VBA/ALUCARD.bas',
+            'SolidWorks/VBA/ALUCARD.swp'
+          )
+
+          foreach ($file in $requiredFiles) {
+            if (!(Test-Path -LiteralPath $file -PathType Leaf)) {
+              throw "Required installer input is missing: $file"
+            }
+          }
+
+      - name: Install Inno Setup
+        run: choco install innosetup --yes --no-progress
+
+      - name: Build installer
+        shell: pwsh
+        run: |
+          $compiler = Join-Path ${env:ProgramFiles(x86)} 'Inno Setup 6/ISCC.exe'
+          if (!(Test-Path -LiteralPath $compiler -PathType Leaf)) {
+            throw "Inno Setup compiler not found: $compiler"
+          }
+
+          New-Item -ItemType Directory -Path Release -Force | Out-Null
+          & $compiler Installer/ALUCARD.iss
+          if ($LASTEXITCODE -ne 0) {
+            throw "Inno Setup failed with exit code $LASTEXITCODE"
+          }
+
+          if (!(Test-Path -LiteralPath 'Release/ALUCARD-Setup.exe' -PathType Leaf)) {
+            throw 'Installer output was not created: Release/ALUCARD-Setup.exe'
+          }
+
+      - name: Upload installer artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ALUCARD-Setup
+          path: Release/ALUCARD-Setup.exe
+          if-no-files-found: error
